@@ -2,7 +2,6 @@ package com.hostfully.bookingapp.booking.domain;
 
 import com.hostfully.bookingapp.property.domain.Property;
 import com.hostfully.bookingapp.user.domain.User;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,14 +9,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -57,12 +54,11 @@ public class Booking {
     @Column
     private Boolean canceled;
 
-    @OneToMany(
-            mappedBy = "booking",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<GuestsDetail> guestsDetails;
+    @Column
+    private Integer adults;
+
+    @Column
+    private Integer children;
 
     public UUID getId() {
         return id;
@@ -120,11 +116,19 @@ public class Booking {
         this.canceled = canceled;
     }
 
-    public List<GuestsDetail> getGuestsDetails() {
-        return guestsDetails;
+    public Integer getAdults() {
+        return adults;
     }
 
-    public void setGuestsDetails(List<GuestsDetail> guestsDetails) {
-        this.guestsDetails = guestsDetails;
+    public void setAdults(Integer adults) {
+        this.adults = adults;
+    }
+
+    public Integer getChildren() {
+        return children;
+    }
+
+    public void setChildren(Integer children) {
+        this.children = children;
     }
 }

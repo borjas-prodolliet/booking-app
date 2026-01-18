@@ -16,16 +16,9 @@ CREATE TABLE bookings
     main_guest_id UUID,
     message       VARCHAR(255),
     canceled      BOOLEAN,
+    adults        INT,
+    children      INT,
     CONSTRAINT pk_bookings PRIMARY KEY (id)
-);
-
-CREATE TABLE guests_details
-(
-    id            UUID NOT NULL,
-    guests_number INT,
-    age_category  VARCHAR(255),
-    booking_id    UUID,
-    CONSTRAINT pk_guests_details PRIMARY KEY (id)
 );
 
 CREATE TABLE properties
@@ -60,9 +53,6 @@ ALTER TABLE bookings
 
 ALTER TABLE bookings
     ADD CONSTRAINT FK_BOOKINGS_ON_PROPERTY FOREIGN KEY (property_id) REFERENCES properties (id);
-
-ALTER TABLE guests_details
-    ADD CONSTRAINT FK_GUESTS_DETAILS_ON_BOOKING FOREIGN KEY (booking_id) REFERENCES bookings (id);
 
 ALTER TABLE properties
     ADD CONSTRAINT FK_PROPERTIES_ON_OWNER FOREIGN KEY (owner_id) REFERENCES users (id);
