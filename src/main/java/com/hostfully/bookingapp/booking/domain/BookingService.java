@@ -57,6 +57,8 @@ public class BookingService {
     public Booking updateBooking(UUID bookingId, UpdateBookingRequest request) {
         log.info("Updating booking {}", bookingId);
 
+        validateDateRange(request.dateFrom(), request.dateTo());
+
         Booking booking = getBooking(bookingId);
 
         if (Boolean.TRUE.equals(booking.getCanceled())) {
@@ -67,11 +69,38 @@ public class BookingService {
         propertyService.verifyPropertyAvailability(
                 booking.getProperty().getId(), request.dateFrom(), request.dateTo(), bookingId, null);
 
-        booking.setDateFrom(request.dateFrom());
-        booking.setDateTo(request.dateTo());
-        booking.setMessage(request.message());
-        booking.setAdults(request.adults());
-        booking.setChildren(request.children());
+        boolean hasChanges = false;
+
+        if (booking.getMessage() != null && !booking.getMessage().equals(request.message()) ||
+                booking.getMessage() == null && request.message() != null) {
+            hasChanges = true;
+            booking.setMessage(request.message());
+        }
+
+        if (!booking.getDateFrom().equals(request.dateFrom())) {
+            hasChanges = true;
+            booking.setDateFrom(request.dateFrom());
+        }
+
+        if (!booking.getDateTo().equals(request.dateTo())) {
+            hasChanges = true;
+            booking.setDateTo(request.dateTo());
+        }
+
+        if (!booking.getAdults().equals(request.adults())) {
+            hasChanges = true;
+            booking.setAdults(request.adults());
+        }
+
+        if (!booking.getChildren().equals(request.children())) {
+            hasChanges = true;
+            booking.setChildren(request.children());
+        }
+
+        if (!hasChanges) {
+            log.error("The booking has no changes");
+            throw new AppException(AppExceptionDetail.NO_CHANGES);
+        }
 
         return bookingDao.update(booking);
     }

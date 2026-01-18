@@ -54,8 +54,22 @@ public class BlockService {
         propertyService.verifyPropertyAvailability(
                 block.getProperty().getId(), request.dateFrom(), request.dateTo(), null, blockId);
 
-        block.setDateFrom(request.dateFrom());
-        block.setDateTo(request.dateTo());
+        boolean hasChanges = false;
+
+        if (!block.getDateFrom().equals(request.dateFrom())) {
+            hasChanges = true;
+            block.setDateFrom(request.dateFrom());
+        }
+
+        if (!block.getDateTo().equals(request.dateTo())) {
+            hasChanges = true;
+            block.setDateTo(request.dateTo());
+        }
+
+        if (!hasChanges) {
+            log.error("The block has no changes");
+            throw new AppException(AppExceptionDetail.NO_CHANGES);
+        }
 
         return blockDao.update(block);
     }
