@@ -15,6 +15,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -130,5 +131,21 @@ public class Booking {
 
     public void setChildren(Integer children) {
         this.children = children;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(id, booking.id) && Objects.equals(property, booking.property)
+                && Objects.equals(dateFrom, booking.dateFrom) && Objects.equals(dateTo, booking.dateTo)
+                && Objects.equals(mainGuest, booking.mainGuest) && Objects.equals(message, booking.message)
+                && Objects.equals(canceled, booking.canceled) && Objects.equals(adults, booking.adults)
+                && Objects.equals(children, booking.children);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, property, dateFrom, dateTo, mainGuest, message, canceled, adults, children);
     }
 }

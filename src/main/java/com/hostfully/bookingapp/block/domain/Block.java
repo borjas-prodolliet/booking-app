@@ -14,6 +14,7 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.UUID;
 
 @Entity
@@ -70,5 +71,19 @@ public class Block {
 
     public void setDateTo(LocalDate dateTo) {
         this.dateTo = dateTo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Block block = (Block) o;
+        return Objects.equals(id, block.id) && Objects.equals(property, block.property)
+                && Objects.equals(dateFrom, block.dateFrom)
+                && Objects.equals(dateTo, block.dateTo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, property, dateFrom, dateTo);
     }
 }
