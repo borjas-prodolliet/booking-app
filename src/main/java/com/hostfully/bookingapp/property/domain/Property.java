@@ -1,5 +1,6 @@
 package com.hostfully.bookingapp.property.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.hostfully.bookingapp.user.domain.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,6 +41,7 @@ public class Property {
             name = "owner_id",
             referencedColumnName = "id"
     )
+    @JsonBackReference
     private User owner;
 
     @Column
