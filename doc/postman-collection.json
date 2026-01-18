@@ -42,7 +42,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"dateFrom\": \"2026-10-21\",\n    \"dateTo\": \"2026-10-25\",\n    \"message\": \"Hi, we will be arriving between 16:00 and 18:00\",\n    \"adults\": 2,\n    \"children\": 1\n}",
+          "raw": "{\n    \"dateFrom\": \"2026-10-21\",\n    \"dateTo\": \"2026-10-28\",\n    \"message\": \"Hi, we will be arriving between 16:00 and 18:00\",\n    \"adults\": 2,\n    \"children\": 1\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -50,7 +50,7 @@
           }
         },
         "url": {
-          "raw": "localhost:8090/api/v1/bookings/ac7a4e1a-ab04-4791-ab60-0fb657bd173d",
+          "raw": "localhost:8090/api/v1/bookings/0084a07b-d5f5-4ae3-bd6f-ab80d1b34b6a",
           "host": [
             "localhost"
           ],
@@ -59,7 +59,7 @@
             "api",
             "v1",
             "bookings",
-            "ac7a4e1a-ab04-4791-ab60-0fb657bd173d"
+            "0084a07b-d5f5-4ae3-bd6f-ab80d1b34b6a"
           ]
         }
       },
@@ -71,7 +71,7 @@
         "method": "PATCH",
         "header": [],
         "url": {
-          "raw": "localhost:8090/api/v1/bookings/ac7a4e1a-ab04-4791-ab60-0fb657bd173d/cancel",
+          "raw": "localhost:8090/api/v1/bookings/084a07b-d5f5-4ae3-bd6f-ab80d1b34b6a/cancel",
           "host": [
             "localhost"
           ],
@@ -80,7 +80,7 @@
             "api",
             "v1",
             "bookings",
-            "ac7a4e1a-ab04-4791-ab60-0fb657bd173d",
+            "084a07b-d5f5-4ae3-bd6f-ab80d1b34b6a",
             "cancel"
           ]
         }
@@ -215,15 +215,6 @@
       "request": {
         "method": "DELETE",
         "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"dateFrom\": \"2026-10-28\",\n    \"dateTo\": \"2026-10-30\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
         "url": {
           "raw": "localhost:8090/api/v1/blocks/e7e2357c-4de3-4078-9d0e-a27885c52193",
           "host": [
@@ -242,21 +233,9 @@
     },
     {
       "name": "Get Block",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
       "request": {
         "method": "GET",
         "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"dateFrom\": \"2026-10-28\",\n    \"dateTo\": \"2026-10-30\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
         "url": {
           "raw": "localhost:8090/api/v1/blocks/e7e2357c-4de3-4078-9d0e-a27885c52193",
           "host": [
