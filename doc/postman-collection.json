@@ -1,0 +1,277 @@
+{
+  "info": {
+    "_postman_id": "3b88e746-6b12-4390-9e04-c505c9bc70ea",
+    "name": "Booking App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "7639765"
+  },
+  "item": [
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"propertyId\": \"c3c27fcd-9536-46f9-83ad-5511bf1432fc\",\n    \"mainGuestId\": \"ceccd113-a6d3-4b94-b52a-74e2af7654eb\",\n    \"dateFrom\": \"2026-10-21\",\n    \"dateTo\": \"2026-10-25\",\n    \"message\": \"Hi, we will be arriving between 16:00 and 18:00\",\n    \"adults\": 2,\n    \"children\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8090/api/v1/bookings",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "bookings"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Booking",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"dateFrom\": \"2026-10-21\",\n    \"dateTo\": \"2026-10-25\",\n    \"message\": \"Hi, we will be arriving between 16:00 and 18:00\",\n    \"adults\": 2,\n    \"children\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8090/api/v1/bookings/ac7a4e1a-ab04-4791-ab60-0fb657bd173d",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "bookings",
+            "ac7a4e1a-ab04-4791-ab60-0fb657bd173d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cancel Booking",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "localhost:8090/api/v1/bookings/ac7a4e1a-ab04-4791-ab60-0fb657bd173d/cancel",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "bookings",
+            "ac7a4e1a-ab04-4791-ab60-0fb657bd173d",
+            "cancel"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Rebook Booking",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "localhost:8090/api/v1/bookings/ac7a4e1a-ab04-4791-ab60-0fb657bd173d/rebook",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "bookings",
+            "ac7a4e1a-ab04-4791-ab60-0fb657bd173d",
+            "rebook"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Booking",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "localhost:8090/api/v1/bookings/ac7a4e1a-ab04-4791-ab60-0fb657bd173d",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "bookings",
+            "ac7a4e1a-ab04-4791-ab60-0fb657bd173d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Booking",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8090/api/v1/bookings/295ccc59-26e1-4064-a51e-97e5c0004e1c",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "bookings",
+            "295ccc59-26e1-4064-a51e-97e5c0004e1c"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Block",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"propertyId\": \"c3c27fcd-9536-46f9-83ad-5511bf1432fc\",\n    \"dateFrom\": \"2026-10-26\",\n    \"dateTo\": \"2026-10-28\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8090/api/v1/blocks",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "blocks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Block",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"dateFrom\": \"2026-10-28\",\n    \"dateTo\": \"2026-10-30\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8090/api/v1/blocks/e7e2357c-4de3-4078-9d0e-a27885c52193",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "blocks",
+            "e7e2357c-4de3-4078-9d0e-a27885c52193"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Block",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"dateFrom\": \"2026-10-28\",\n    \"dateTo\": \"2026-10-30\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8090/api/v1/blocks/e7e2357c-4de3-4078-9d0e-a27885c52193",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "blocks",
+            "e7e2357c-4de3-4078-9d0e-a27885c52193"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Block",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"dateFrom\": \"2026-10-28\",\n    \"dateTo\": \"2026-10-30\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8090/api/v1/blocks/e7e2357c-4de3-4078-9d0e-a27885c52193",
+          "host": [
+            "localhost"
+          ],
+          "port": "8090",
+          "path": [
+            "api",
+            "v1",
+            "blocks",
+            "e7e2357c-4de3-4078-9d0e-a27885c52193"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
