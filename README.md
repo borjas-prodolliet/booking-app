@@ -1,6 +1,38 @@
-# Hostfully challenge
+# Booking app challenge
 
-## Booking app
+## Challenge
+
+Create a RESTful webservice with any framework you are familiar with.
+
+### Terminology
+
+A booking is when a guest selects a start and end date and submits a reservation on a property. A block
+is when the property owner or manager selects a range of days during which no guest can make a
+booking (e.g. the owner wants to use the property for themselves, or the property manager needs to
+schedule the repainting of a few rooms).
+
+#### Backend
+
+Java (11 or newer)
+
+The REST API should allow users to:
+
+- Create a booking
+- Update booking dates and guest details
+- Cancel a booking
+- Rebook a canceled booking
+- Delete a booking from the system
+- Get a booking
+- Create, update and delete a block (Use
+
+Implement proper validation to ensure data integrity. Provide logic to prevent bookings from overlapping
+(in terms of dates and property) with non-canceled bookings or blocks.
+
+#### Database
+
+We recommend use of in-memory volatile DB.
+
+## Solution
 
 The proposed solution is a Spring Boot application, using JPA Hibernate to handle database operations, and the database
 used is an in-memory H2. Also flyway was used to handle the database schema creation and to insert test data for easy
@@ -16,7 +48,7 @@ the Booking entity.
 ### Running the app locally
 
 To run the application locally, you can directly run the main
-class [BookingApplication.java](src/main/java/com/hostfully/bookingapp/BookingApplication.java) in your IDE, or manually
+class [BookingApplication.java](src/main/java/com/bookingapp/BookingApplication.java) in your IDE, or manually
 run the command:
 
 ```bash
